@@ -14,7 +14,7 @@ export class NetworkMachineService {
     const body: any = {
       year,
     };
-    return this.communicatorService.http_post(environment.URL_PRODUCTION + 'network/', body);
+    return this.communicatorService.http_post(environment.URL_PRODUCTION + 'getPIB/', body);
   }
 
 }

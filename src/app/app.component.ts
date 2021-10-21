@@ -9,8 +9,6 @@ import {MachineModel} from './model/MachineModel';
 export class AppComponent implements OnInit {
   title = 'netowrk-machine';
   input: string;
-  coeficiente: string;
-  error: string;
   information: string;
   machine: MachineModel;
 
@@ -20,22 +18,14 @@ export class AppComponent implements OnInit {
   }
 
 
-  keyup(text: string, indicate: number): void {
-    if(indicate == 0) {
-      this.input = text;
-    }
-    if(indicate == 1) {
-      this.coeficiente = text;
-    }
-
-    if(indicate == 2) {
-      this.error = text
-    }
+  keyup(text: string): void {
+    this.input = text;
   }
 
   clickItem(): void  {
 
     this.networkMachineService.getMachineNetwork(this.input).subscribe(result => {
+      console.log(JSON.stringify(result));
        this.machine = result.data;
     }, error => {
       this.information  = JSON.stringify(error);

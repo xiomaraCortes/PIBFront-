@@ -1,13 +1,8 @@
 
 export class MachineModel {
-  input: Array<number>;
-  height: Array<number>;
-  tangent: number;
+  pib: string;
 
-
-  constructor(input: Array<number>, height: Array<number>, tangent: number) {
-    this.input = input;
-    this.height = height;
-    this.tangent = tangent;
+  constructor(pib: string) {
+    this.pib = pib;
   }
 }
