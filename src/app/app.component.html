@@ -1,0 +1,45 @@
+<div class="container-machine">
+  <div class="centerInput">
+    <input 
+    type="text"
+    value=""
+    autocomplete="off"
+    #input (keyup)="keyup(input.value, 0)"
+    placeholder="Digite los campos de entrada separados por una coma (;)"
+    class="text"
+  />
+  </div>
+
+  <div class="container-button">
+    <input type="button" class="button" value="Buscar" (click)="clickItem()">
+  </div>
+  <div class="description-error">
+    <span>{{information}}</span>
+  </div>
+  <div class="container-machine" *ngIf="machine !== undefined">
+    <div class="container-inputs">
+      <div >Capa de entrada</div>
+      <div class="circle" *ngFor="let item of machine.input">
+        <div class="text">
+          <span>{{item}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="container-outputs" *ngIf="machine !== undefined">
+      <div >Capa de oculta</div>
+      <div class="circle" *ngFor="let item of machine.height">
+        <div class="text">
+          <span>{{item}}</span>
+        </div>
+      </div>
+    </div>
+    <div class="container-result" *ngIf="machine !== undefined">
+      <div >Capa de salida</div>
+      <div class="circle">
+        <div class="text">
+          <span>{{machine.tangent}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
