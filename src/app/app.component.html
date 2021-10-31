@@ -1,15 +1,68 @@
 <div class="container-machine">
+
   <div class="centerInput">
     <input 
     type="text"
     value=""
     autocomplete="off"
-    #input (keyup)="keyup(input.value)"
-    placeholder="Ingrese los siguientes valores separados por una coma Consumo, inversiones, exportaciones, importaciones y gasto publico"
+    #input (keyup)="keyup(input.value, 0 )"
+    placeholder="Consumo"
     class="text"
   />
   </div>
 
+  <div class="centerInput">
+    <div>
+      <span>Inversiones</span>
+    </div>
+    <input 
+    type="text"
+    value=""
+    autocomplete="off"
+    #input (keyup)="keyup(input.value, 1)"
+    placeholder="Inversiones"
+    class="text"
+  />
+  </div>
+  <div class="centerInput">
+    <div>
+      <span>EXPORTACIONES</span>
+    </div>
+    <input 
+    type="text"
+    value=""
+    autocomplete="off"
+    #input (keyup)="keyup(input.value, 2)"
+    placeholder="Exportaciones"
+    class="text"
+  />
+  </div>
+  <div class="centerInput">
+    <div>
+      <span>IMPORTACIONES</span>
+    </div>
+    <input 
+    type="text"
+    value=""
+    autocomplete="off"
+    #input (keyup)="keyup(input.value, 3)"
+    placeholder="IMPORTACIONES"
+    class="text"
+  />
+  </div>
+  <div class="centerInput">
+    <div>
+      <span>GASTO PUBLICO</span>
+    </div>
+    <input 
+    type="text"
+    value=""
+    autocomplete="off"
+    #input (keyup)="keyup(input.value, 4)"
+    placeholder="GASTO PUBLICO"
+    class="text"
+  />
+  </div>
   <div class="container-button">
     <input type="button" class="button" value="Buscar" (click)="clickItem()">
   </div>

@@ -8,7 +8,11 @@ import {MachineModel} from './model/MachineModel';
 })
 export class AppComponent implements OnInit {
   title = 'netowrk-machine';
-  input: string;
+  consumo: string;
+  inversiones: string;
+  exportaciones: string;
+  importaciones: string;
+  gasto: string;
   information: string;
   machine: MachineModel;
 
@@ -18,23 +22,35 @@ export class AppComponent implements OnInit {
   }
 
 
-  keyup(text: string): void {
-    this.input = text;
+  keyup(text: string, item : number): void {
+    if(item === 0) {
+      this.consumo = text;
+    }
+    if(item === 1) {
+      this.inversiones = text;
+    }
+
+    if(item === 2) {
+      this.exportaciones = text;
+    }
+
+    if(item === 3) {
+      this.importaciones = text;
+    }
+
+    if(item === 4) {
+      this.gasto = text;
+    }
   }
 
   clickItem(): void  {
-    const item = this.input.split(",");
-    this.networkMachineService.getMachineNetwork(Number(item[0]), Number(item[1]), Number(item[2]), Number(item[3]), Number(item[4])).subscribe(result => {
+
+    this.networkMachineService.getMachineNetwork(Number(this.consumo), Number(this.inversiones), Number(this.exportaciones), Number(this.importaciones),
+     Number(this.gasto)).subscribe(result => {
        this.machine = result.data;
     }, error => {
       this.information  = JSON.stringify(error);
     });
-  }
-
-
-  checkInputIsValid(): boolean {
-     return this.input !== undefined && this.input.split(';').length == 2 && (Number(this.input.split(';')[0])< 2 && Number(this.input.split(';')[0])> -2)
-     && (Number(this.input.split(';')[1])< 2 && Number(this.input.split(';')[1])> -2)
   }
 
   checkFieldIsValid(input : string): boolean {
