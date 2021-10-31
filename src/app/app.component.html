@@ -5,7 +5,7 @@
     value=""
     autocomplete="off"
     #input (keyup)="keyup(input.value)"
-    placeholder="Ingrese el valor del año para calcular el pib"
+    placeholder="Ingrese los siguientes valores separados por una coma Consumo, inversiones, exportaciones, importaciones y gasto publico"
     class="text"
   />
   </div>
@@ -15,6 +15,9 @@
   </div>
   <div class="description-error" *ngIf="machine !== undefined">
     <span>El pib  aproximado es de {{machine.pib}}</span>
+  </div>
+  <div class="description-error" *ngIf="machine !== undefined">
+    <span> {{machine.message}}</span>
   </div>
   <div class="description-error">
     <span>{{information}}</span>

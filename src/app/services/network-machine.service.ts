@@ -10,9 +10,13 @@ export class NetworkMachineService {
 
   constructor(private communicatorService: CommunicatorService) { }
 
-  getMachineNetwork(year: string): Observable<any>  {
+  getMachineNetwork(consumption: number, investment: number, exports: number, importsItem:number, publicSpending:number): Observable<any>  {
     const body: any = {
-      year,
+      consumption,
+      investment,
+      exports,
+      importsItem,
+      publicSpending
     };
     return this.communicatorService.http_post(environment.URL_PRODUCTION + 'getPIB/', body);
   }

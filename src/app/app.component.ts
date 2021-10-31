@@ -23,9 +23,8 @@ export class AppComponent implements OnInit {
   }
 
   clickItem(): void  {
-
-    this.networkMachineService.getMachineNetwork(this.input).subscribe(result => {
-      console.log(JSON.stringify(result));
+    const item = this.input.split(",");
+    this.networkMachineService.getMachineNetwork(Number(item[0]), Number(item[1]), Number(item[2]), Number(item[3]), Number(item[4])).subscribe(result => {
        this.machine = result.data;
     }, error => {
       this.information  = JSON.stringify(error);
