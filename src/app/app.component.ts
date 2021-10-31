@@ -44,7 +44,7 @@ export class AppComponent implements OnInit {
   }
 
   clickItem(): void  {
-
+     console.log('Ento');
     this.networkMachineService.getMachineNetwork(Number(this.consumo), Number(this.inversiones), Number(this.exportaciones), Number(this.importaciones),
      Number(this.gasto)).subscribe(result => {
        this.machine = result.data;
